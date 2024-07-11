@@ -31,10 +31,7 @@ function Form({ noClique, typeClique }) {
                     <option selected>O que procura?</option>
                     <option value="album">Álbum</option>
                     <option value="artist">Artista</option>
-                    <option value="track">Faixa</option>
                     <option value="playlist">Playlist</option>
-                    <option value="show">Show de Podcast</option>
-                    <option value="episode">Episódio de Podcast</option>
                 </select>
             </div>
         </form>

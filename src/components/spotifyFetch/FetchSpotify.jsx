@@ -58,7 +58,7 @@ function FetchSpotify({ artista, type }) {
                                 {item.images?.length > 0 && (
                                     <div className='imgEscrita'>
                                         <img src={item.images?.length > 0 ? item.images[0].url : 'path/to/placeholder.jpg'} className="card-img-top mb-3" alt={item.name} />
-                                        <p className="card-title">{item.name.substring(0, 22)}</p>
+                                        <p className="card-title">{item.name}</p>
                                     </div>
                                 )}
                             </div>
