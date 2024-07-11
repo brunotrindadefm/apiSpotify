@@ -54,14 +54,16 @@ function FetchSpotify({ artista, type }) {
                 <div className='container-fluid text-center'>
                     <div className="row row-cols-auto justify-content-center">
                         {data.map(item => (
-                            <div className='card p-3 m-2' key={item.id}>
+                            <>
                                 {item.images?.length > 0 && (
-                                    <div className='imgEscrita'>
-                                        <img src={item.images?.length > 0 ? item.images[0].url : 'path/to/placeholder.jpg'} className="card-img-top mb-3" alt={item.name} />
-                                        <p className="card-title">{item.name}</p>
+                                    <div className='card p-3 m-2' key={item.id}>
+                                        <div className='imgEscrita'>
+                                            <img src={item.images?.length > 0 ? item.images[0].url : 'path/to/placeholder.jpg'} className="card-img-top mb-3" alt={item.name} />
+                                            <p className="card-title">{item.name}</p>
+                                        </div>
                                     </div>
                                 )}
-                            </div>
+                            </>
                         ))}
                     </div>
                 </div>
