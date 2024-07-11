@@ -29,9 +29,9 @@ function Form({ noClique, typeClique }) {
             <div className="custom-select-container">
                 <select value={type} onChange={(e) => setType(e.target.value)} className="form-select">
                     <option selected>O que procura?</option>
-                    <option value="album">Álbum</option>
-                    <option value="artist">Artista</option>
-                    <option value="playlist">Playlist</option>
+                    <option value="album">Álbuns</option>
+                    <option value="artist">Artistas</option>
+                    <option value="playlist">Playlists</option>
                 </select>
             </div>
         </form>
