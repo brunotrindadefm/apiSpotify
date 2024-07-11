@@ -20,7 +20,7 @@ function Form({ noClique, typeClique }) {
             <h2 className='my-5'>Pesquisa Spotify</h2>
             <div className="pesquisa">
                 <div>
-                    <input onChange={(e) => setArtista(e.target.value)} value={artista} className="form-control m-2" placeholder="Artista" type="text" />
+                    <input onChange={(e) => setArtista(e.target.value)} value={artista} className="form-control m-2" placeholder="Search" type="text" />
                 </div>
                 <div>
                     <button onClick={clique} className='botao'><FiSearch /></button>
