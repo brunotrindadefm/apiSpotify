@@ -23,6 +23,7 @@ const Search = () => {
 
     setLoading(true)
     setErro(null)
+    setArtistas([])
 
     try {
       const response = await axios.get(url, {
@@ -36,12 +37,15 @@ const Search = () => {
       });
       setArtistas(response.data.artists.items)
       console.log(response.data)
-
+      if (response.data.artists.total === 0) {
+        setErro('error404')
+      }
     } catch (erro) {
       setErro('error 404')
     } finally {
       setLoading(false)
     }
+
   }
 
   useEffect(() => {
@@ -52,24 +56,28 @@ const Search = () => {
   }, [query])
 
   return (
-    <div className='container'>
-      {!erro && !loading &&
-        <h2 className='title'>Resultados para <span className="query-text">{query}</span></h2>
-      }
-      {loading &&
+    <div className="container">
+      {!erro && !loading && (
+        <h2 className="title">
+          Resultados para <span className="query-text">{query}</span>
+        </h2>
+      )}
+      {loading && (
         <div className="erro-loading">
           <Loading />
         </div>
-      }
-      {erro &&
+      )}
+      {erro && (
         <div className="erro-loading">
           <NotFound erro={erro} query={query} />
         </div>
-      }
-      <div className='music-container'>
-        {artistas.length > 0 && artistas.map((artista) => <MusicCard key={artista.id} movie={artista} />)}
+      )}
+      <div className="music-container">
+        {artistas.length > 0 &&
+          artistas.map((artista) => (
+            <MusicCard music={artista} key={artista.id} showEverthing={true} />
+          ))}
       </div>
-
     </div>
   )
 }

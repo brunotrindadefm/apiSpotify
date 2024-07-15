@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom"
 
-import '../pages/MusicResponsive.css'
-
-const MusicCard = ({ music, showEverthing = true }) => {
+const MusicCard = ({ music, showEverthing }) => {
     return (
         <>
         {music && music.images && music.images.length > 0 &&

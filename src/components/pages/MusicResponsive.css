@@ -1,12 +1,12 @@
 .container .title {
-    color: #FFF;
+    color: rgb(4, 203, 4);
     font-size: 2.5rem;
     text-align: center;
     margin: 2rem 0 1rem;
 }
 
 .query-text {
-    color: green;
+    color: rgb(255, 255, 255);
 }
 
 .music-container {
@@ -57,4 +57,11 @@
 .music-container div a:hover {
     background-color: transparent;
     color: green;
+}
+
+.erro-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
 }

@@ -42,4 +42,10 @@ form {
 
 .nav a span {
     color: green;
+    margin-left: .5rem;
+}
+
+nav a svg {
+    color: green;
+    margin-bottom: .3rem;
 }

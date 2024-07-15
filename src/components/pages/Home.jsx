@@ -51,10 +51,10 @@ const Home = () => {
   return (
     <div className="container">
       {!loading &&
-        <h2 className='title text-center display-3 mt-4 text-success'>Artistas populares</h2>
+        <h2 className='title'>Top Brasil</h2>
       }
       <div className="music-container">
-        {data && data.map((music) => <MusicCard key={music.id} music={music} />)}
+        {data && data.map((music) => <MusicCard key={music.id} showEverthing={true} music={music} />)}
       </div>
     </div>
   )
