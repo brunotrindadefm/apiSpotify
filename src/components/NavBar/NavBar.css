@@ -1,0 +1,45 @@
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    padding: 1rem 2rem;
+}
+
+.pesquisa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao {
+    padding: .3em .5rem;
+    color: #000;
+    background: #fff;
+    border-radius: 10px;
+    transition: 0.5s;
+    border: none;
+}
+
+.botao:hover {
+    color: #000;
+    background: green;
+    transition: 0.5s;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #666;
+} 
+
+.nav a span {
+    color: green;
+}

@@ -1,10 +1,10 @@
 import './NotFound.css'
 
-function NotFound() {
+function NotFound({erro, query}) {
     return (
         <div className='erro container d-flex justify-content-center align-items-center flex-column '>
-            <h2>Erro: 404</h2>
-            <h3>Not Found</h3>
+            <h2>Erro ao pesquisar {query}</h2>
+            <h3>{erro}</h3>
         </div>
 
     )
