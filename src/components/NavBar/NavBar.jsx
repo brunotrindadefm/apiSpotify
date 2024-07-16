@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 import { FiSearch } from "react-icons/fi"
-import { SiYoutubemusic } from "react-icons/si";
+import { BsSpotify } from "react-icons/bs";
 
 function NavBar() {
 
@@ -26,7 +26,7 @@ function NavBar() {
         <header>
             <nav className="nav">
                 <h1>
-                    <Link to="/"><SiYoutubemusic /><span>BT</span>Music</Link>
+                    <Link to="/"><BsSpotify /><span>BT</span>Music</Link>
                 </h1>
                 <div className="pesquisa">
                     <form onSubmit={submit}>

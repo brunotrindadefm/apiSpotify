@@ -11,7 +11,7 @@ const AAP = () => {
 
   const { id } = useParams();
   const [artist, setArtist] = useState(null);
-  const [albuns, setAlbuns] = useState([])
+  const [albums, setalbums] = useState([])
 
 
   const getArtist = async () => {
@@ -22,6 +22,7 @@ const AAP = () => {
         }
       });
       setArtist(response.data);
+      console.log(response.data)
     } catch (error) {
       console.error("Erro ao buscar artista:", error);
     }
@@ -34,7 +35,7 @@ const AAP = () => {
           Authorization: `Bearer ${apiToken}`
         }
       });
-      setAlbuns(response.data.items);
+      setalbums(response.data.items);
       console.log(response.data.items)
     } catch (error) {
       console.error("Erro ao buscar álbuns:", error);
@@ -49,36 +50,36 @@ const AAP = () => {
   }, [id]);
 
 
+  const corrigirEscrita = (frase) => {
+    if (!frase) return '';
+    return frase
+      .split(' ')
+      .map(palavra => palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   return (
     <div className='music-page'>
       {artist && (
         <>
           <MusicCard key={artist.id} music={artist} showEverything={false} />
-          <p className="tagline"></p>
           <div className="info">
-            <h3>
-              Gêneros Musicais
-            </h3>
-            <p>{artist.genres.map((generos) => <p>{generos}</p>)}</p>
+            <h5><span>Seguidores:</span> {artist.followers.total}</h5>
+            <p><span>Gêneros:</span></p>
+            <p>{artist.genres.map((generos) => {corrigirEscrita(generos)})}</p>
+            <a href={artist.external_urls.spotify} target="_blank">Abrir no Spotify</a>
           </div>
-          <div className="info">
-            <h3>Seguidores</h3>
-            <p>{artist.followers.total}</p>
-          </div>
-          <div className="info">
-            <h3></h3>
-          </div>
-          <div className="info">
-            <h3>Álbuns</h3>
-            <ul>
-              {albuns.map((album) => (
-                <>
-                <li key={album.id}>{album.name}</li>
-                <img src={album.images[0].url} alt={album.name} />
-                <p>Data de lançamento: {album.release_date}</p>
-                </>
+          <div className="info-album">
+            <h2>Álbuns</h2>
+            <div className="albums">
+              {albums.map((album) => (
+                <div key={album.id} className="album">
+                  <a href={album.external_urls.spotify} target="_blank"><img src={album.images[0].url} alt={album.name} /></a>
+                  <h3>{album.name}</h3>
+                  <p>Data de lançamento: {album.release_date}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </>
       )}
