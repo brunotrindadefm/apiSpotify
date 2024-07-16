@@ -1,11 +1,19 @@
 import axios from "axios"
 import { useState, useEffect } from "react";
 
+
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+
 import MusicCard from "../MusicCard/MusicCard";
 
 import './MusicResponsive.css'
 
 const Home = () => {
+
+  useEffect(() => {
+    AOS.init()
+  }, [])
 
   const [data, setData] = useState([])
   const [erro, setErro] = useState(null);
@@ -50,12 +58,14 @@ const Home = () => {
 
   return (
     <div className="container">
-      {!loading &&
+      {
+        !loading &&
         <h2 className='title'>Top Brasil</h2>
       }
-      <div className="music-container">
+      <div className="music-container" data-aos="fade-up">
         {data && data.map((music) => <MusicCard key={music.id} showEverthing={true} music={music} />)}
       </div>
+
     </div>
   )
 }

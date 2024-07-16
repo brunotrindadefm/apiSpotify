@@ -51,7 +51,7 @@ form {
 
 nav a svg {
     color: green;
-
+    margin-bottom: .4rem;
 }
 
 @media(max-width: 640px) {

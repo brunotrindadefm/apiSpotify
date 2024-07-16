@@ -1,15 +1,3 @@
 .erro {
-    background-color: #d5d4d4;
-    border-radius: 20px;
-    max-width: 200px;
-}
-
-.erro h2 {
-    font-size: 2em;
-    margin: .4em 0;
-    font-weight: bold;
-}
-.erro h3 {
-    font-size: 2em;
-    font-weight: bold;
+    color: white;
 }

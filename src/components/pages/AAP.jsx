@@ -2,17 +2,21 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import MusicCard from "../MusicCard/MusicCard";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import './AAP.css';
 
-import './AAP.css'
-
-const apiToken = import.meta.env.VITE_API_TOKEN
+const apiToken = import.meta.env.VITE_API_TOKEN;
 
 const AAP = () => {
 
   const { id } = useParams();
   const [artist, setArtist] = useState(null);
-  const [albums, setalbums] = useState([])
+  const [albums, setAlbums] = useState([])
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const getArtist = async () => {
     try {
@@ -22,7 +26,7 @@ const AAP = () => {
         }
       });
       setArtist(response.data);
-      console.log(response.data)
+      console.log(response.data);
     } catch (error) {
       console.error("Erro ao buscar artista:", error);
     }
@@ -35,8 +39,8 @@ const AAP = () => {
           Authorization: `Bearer ${apiToken}`
         }
       });
-      setalbums(response.data.items);
-      console.log(response.data.items)
+      setAlbums(response.data.items);
+      console.log(response.data.items);
     } catch (error) {
       console.error("Erro ao buscar álbuns:", error);
     }
@@ -48,7 +52,6 @@ const AAP = () => {
       getAlbums();
     }
   }, [id]);
-
 
   const corrigirEscrita = (frase) => {
     if (!frase) return '';
@@ -63,18 +66,22 @@ const AAP = () => {
       {artist && (
         <>
           <MusicCard key={artist.id} music={artist} showEverything={false} />
-          <div className="info">
+          <div data-aos="fade-right" className="info">
             <h5><span>Seguidores:</span> {artist.followers.total}</h5>
             <p><span>Gêneros:</span></p>
-            <p>{artist.genres.map((generos) => {corrigirEscrita(generos)})}</p>
-            <a href={artist.external_urls.spotify} target="_blank">Abrir no Spotify</a>
+            {artist.genres.map((genero) => (
+              <p key={genero}>{corrigirEscrita(genero)}</p>
+            ))}
+            <a href={artist.external_urls.spotify} target="_blank" rel="noopener noreferrer">Abrir no Spotify</a>
           </div>
           <div className="info-album">
             <h2>Álbuns</h2>
             <div className="albums">
               {albums.map((album) => (
-                <div key={album.id} className="album">
-                  <a href={album.external_urls.spotify} target="_blank"><img src={album.images[0].url} alt={album.name} /></a>
+                <div key={album.id} className="album" data-aos="fade-up" data-aos-duration="1000">
+                  <a href={album.external_urls.spotify} target="_blank" rel="noopener noreferrer">
+                    <img src={album.images[0].url} alt={album.name} />
+                  </a>
                   <h3>{album.name}</h3>
                   <p>Data de lançamento: {album.release_date}</p>
                 </div>

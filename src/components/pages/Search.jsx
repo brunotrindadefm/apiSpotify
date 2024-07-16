@@ -1,6 +1,9 @@
-import { useParams, useSearchParams } from "react-router-dom"
+import {  useSearchParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
+
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 import MusicCard from "../MusicCard/MusicCard"
 import NotFound from "../NotFound/NotFound"
@@ -72,7 +75,7 @@ const Search = () => {
           <NotFound erro={erro} query={query} />
         </div>
       )}
-      <div className="music-container">
+      <div className="music-container" data-aos="fade-up" data-aos-duration="1000">
         {artistas.length > 0 &&
           artistas.map((artista) => (
             <MusicCard music={artista} key={artista.id} showEverthing={true} />
