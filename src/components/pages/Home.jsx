@@ -25,7 +25,7 @@ const Home = () => {
           "Authorization": `Bearer ${apiToken}`
         },
         params: {
-          q: "topbrasil",
+          q: "TopBrasil",
           type: "artist"
         }
       });
@@ -54,7 +54,7 @@ const Home = () => {
         !loading &&
         <h2 className='title'>Top Brasil</h2>
       }
-      <div className="music-container">
+      <div className="music-container" data-aos="fade-up">
         {data && data.map((music) => <MusicCard key={music.id} showEverything={true} music={music} />)}
       </div>
 

@@ -1,7 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+
 import MusicCard from "../MusicCard/MusicCard";
+import ArrowDown from "../ArrowDown/ArrowDown";
+
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './AAP.css';
@@ -70,20 +73,36 @@ const AAP = () => {
     });
   }
 
+  const formatDate = (date) => {
+    if (date.length > 5) {
+      const [year, month, day] = date.split('-');
+      return `${day}/${month}/${year}`;
+    }
+    return date
+  };
+
   return (
     <div className='music-page'>
       {artist && (
         <>
-          <MusicCard key={artist.id} music={artist} showEverything={false} />
           <div data-aos="fade-up" className="info">
-          <a href={artist.external_urls.spotify} target="_blank" rel="noopener noreferrer">Abrir no Spotify</a>
-            <h5><span>Seguidores:</span> {formatFollowers(artist.followers.total)}</h5>
-            <p><span>Gêneros:</span></p>
-            {artist.genres.map((genero) => (
-              <p key={genero}>{corrigirEscrita(genero)}</p>
-            ))}
+            <div className="artist">
+              <MusicCard key={artist.id} music={artist} showEverything={false} />
+            </div>
+            <div className="description">
+              <h5><span>Seguidores:</span> {formatFollowers(artist.followers.total)}</h5>
+              <h5><span>Gêneros:</span></h5>
+              {artist.genres.map((genero) => (
+                <p key={genero}>{corrigirEscrita(genero)}</p>
+              ))}
+              <a href={artist.external_urls.spotify} target="_blank" rel="noopener noreferrer">Abrir no Spotify</a>
+            </div>
           </div>
-          <div className="info-album">
+          <div className="seeAlbums">
+            <p>Desça para ver os álbuns</p>
+            <div className="arrowDown"><ArrowDown /></div>
+          </div>
+          <div className="info-album" data-aos="fade-up" data-aos-delay="200">
             <h2>Álbuns</h2>
             <div className="albums">
               {albums.map((album, index) => (
@@ -92,7 +111,7 @@ const AAP = () => {
                     <img src={album.images[0].url} alt={album.name} />
                   </a>
                   <h3>{album.name}</h3>
-                  <p>Data de lançamento: {album.release_date}</p>
+                  <p>Data de lançamento: {formatDate(album.release_date)}</p>
                 </div>
               ))}
             </div>
