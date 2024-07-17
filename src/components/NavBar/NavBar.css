@@ -41,17 +41,17 @@ form {
 
 .nav a {
     text-decoration: none;
-    color: #666;
+    color: #fff;
 } 
 
 .nav a span {
-    color: green;
+    color: rgb(67, 216, 67);
     margin-left: .5rem
 }
 
 nav a svg {
-    color: green;
-    margin-bottom: .4rem;
+    color: rgb(67, 204, 67);
+    margin-bottom: .45rem;
 }
 
 @media(max-width: 640px) {

@@ -1,3 +1,16 @@
 .erro {
     color: white;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.erro span {
+    color: rgb(56, 194, 56);
+    margin-bottom: 1rem;
+}
+
+.erro svg {
+    font-size: 3rem;
+    margin-bottom: .2rem;
+    color: red;
 }

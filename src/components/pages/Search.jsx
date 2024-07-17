@@ -1,13 +1,14 @@
-import {  useSearchParams } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios"
-
-import 'aos/dist/aos.css';
-import AOS from 'aos';
 
 import MusicCard from "../MusicCard/MusicCard"
 import NotFound from "../NotFound/NotFound"
 import Loading from '../Loading/Loading'
+
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+
 
 import './MusicResponsive.css'
 
@@ -41,10 +42,10 @@ const Search = () => {
       setArtistas(response.data.artists.items)
       console.log(response.data)
       if (response.data.artists.total === 0) {
-        setErro('error404')
+        setErro('Error 404')
       }
     } catch (erro) {
-      setErro('error 404')
+      setErro('Erro ao buscar o artista.')
     } finally {
       setLoading(false)
     }
@@ -52,6 +53,7 @@ const Search = () => {
   }
 
   useEffect(() => {
+    AOS.init();
 
     const queryURL = `https://api.spotify.com/v1/search`
 
@@ -72,13 +74,13 @@ const Search = () => {
       )}
       {erro && (
         <div className="erro-loading">
-          <NotFound erro={erro} query={query} />
+          <NotFound query={query} />
         </div>
       )}
-      <div className="music-container" data-aos="fade-up" data-aos-duration="1000">
+      <div className="music-container">
         {artistas.length > 0 &&
           artistas.map((artista) => (
-            <MusicCard music={artista} key={artista.id} showEverthing={true} />
+            <MusicCard music={artista} key={artista.id} showEverything={true} />
           ))}
       </div>
     </div>
