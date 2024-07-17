@@ -99,8 +99,8 @@ const AAP = () => {
             </div>
           </div>
           <div className="seeAlbums">
-            <p>Desça para ver os álbuns</p>
-            <div className="arrowDown"><ArrowDown /></div>
+            <div className="arrowDown">
+              <p>Desça para ver os álbuns</p><ArrowDown /></div>
           </div>
           <div className="info-album" data-aos="fade-up" data-aos-delay="200">
             <h2>Álbuns</h2>

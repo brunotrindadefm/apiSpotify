@@ -28,47 +28,37 @@
 .seeAlbums {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
     flex-direction: column;
     height: 220px;
 }
 .arrowDown {
     animation: arrowMoveDown 0.8s infinite linear;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 @keyframes arrowMoveDown {
     0% {
-        margin-bottom: 0;
-    }
-    10% {
-        margin-bottom: 0.3rem;
+        transform: translateY(0);
     }
     20% {
-        margin-bottom: 0.5rem;
-    }
-    30% {
-        margin-bottom: 0.7rem;
+        transform: translateY(0.5rem);
     }
     40% {
-        margin-bottom: 0.8rem;
+        transform: translateY(0.8rem);
     }
     50% {
-        margin-bottom: 1rem;
-    }
-    60% {
-        margin-bottom: 0.8rem;
+        transform: translateY(1rem);
     }
     70% {
-        margin-bottom: 0.5rem;
-    }
-    80% {
-        margin-bottom: 0.3rem;
+        transform: translateY(0.5rem);
     }
     90% {
-        margin-bottom: 0.1rem;
+        transform: translateY(0.3rem);
     }
     100% {
-        margin-bottom: 0;
+        transform: translateY(0);
     }
 }
 
