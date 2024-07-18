@@ -29,8 +29,9 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    height: 220px;
+    height: 14rem;
 }
+
 .arrowDown {
     animation: arrowMoveDown 0.8s infinite linear;
     display: flex;
@@ -42,36 +43,37 @@
     0% {
         transform: translateY(0);
     }
+
     20% {
         transform: translateY(0.5rem);
     }
+
     40% {
         transform: translateY(0.8rem);
     }
+
     50% {
         transform: translateY(1rem);
     }
+
     70% {
         transform: translateY(0.5rem);
     }
+
     90% {
         transform: translateY(0.3rem);
     }
+
     100% {
         transform: translateY(0);
     }
 }
 
-
-.info-album {
-    margin-top: 1rem;
-}
-
 .info-album h2 {
     text-align: center;
     font-size: 3rem;
-    color: orangered;
-    margin: 3rem 0 .8rem;
+    color: rgb(55, 244, 55);
+    margin: 5rem 0 .8rem;
 }
 
 .info {
@@ -111,7 +113,7 @@
 }
 
 .info span {
-    color: blue;
+    color: rgb(55, 244, 55);
 }
 
 .music-page .music-card img {
@@ -136,9 +138,10 @@
 
 .albums h3 {
     font-weight: bold;
-    color: green;
+    color: blue;
     margin-top: .8rem;
 }
+
 
 .albums img {
     width: 90%;
@@ -153,6 +156,9 @@
     .description {
         margin: .5rem 0;
     }
+    .seeAlbums {
+        height: 5rem;
+    }
 }
 
 @media (max-width: 900px) {
@@ -165,6 +171,7 @@
     .music-page .music-card h2 {
         font-size: 1.8rem;
     }
+
     h5 {
         font-size: 1rem;
     }
