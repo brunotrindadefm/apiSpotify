@@ -29,7 +29,7 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    height: 15rem;
+    height: 18rem;
 }
 
 .arrowDown {
@@ -73,7 +73,7 @@
     text-align: center;
     font-size: 3rem;
     color: rgb(55, 244, 55);
-    margin: 5rem 0 .8rem;
+    margin: 6rem 0 .8rem;
 }
 
 .info {
